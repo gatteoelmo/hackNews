@@ -77,12 +77,12 @@ function fetchStory(id) {
 
 // Function to create the button
 function makeButton() {
-    console.log("Funzione makeButton chiamata");
+    console.log("Function makeButton called");
     const loadMore = document.createElement("button");
     loadMore.classList.add("container");
     loadMore.innerHTML = "Load More";
     main.insertAdjacentElement('beforeend', loadMore);
-    console.log("Pulsante Load More creato correttamente");
+    console.log("Button Load More created correctly");
 
     loadMore.addEventListener("click", () => {
         loadMore.remove();

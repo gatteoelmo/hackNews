@@ -19,7 +19,9 @@ nav {
     justify-content: start;
     align-items: center;
     padding: 20px;
+    flex-wrap: wrap;
 }
+
 
 h1 {
     font-family: "Montserrat", sans-serif;
@@ -31,6 +33,12 @@ h1 {
     display: inline-block;
     padding-top: 10px;
     margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
 }
 
 #logo {
@@ -102,6 +110,29 @@ button {
     font-size: 30px;
     align-items: end;
 }
+
+footer {
+    background-color: blue;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+}
+
+footer img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+footer a {
+    margin-bottom: 10px;
+}
+
 
 @media screen and (max-width: 600px) {
 
