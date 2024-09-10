@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgba(250, 235, 215, 0.604);
 }
 
 h1 {
@@ -27,22 +26,18 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: rgb(255, 255, 255);
     align-items: end;
     border: solid 1px black;
     height: 280px;
     width: 280px;
-    /* margin-top: -1px;
-    margin-left: -1px; */
-    margin: 10px;
+    margin-top: -1px;
+    margin-left: -1px;
     padding: 5px 10px;
-    /* border-radius: 10px; */
-    box-shadow: -10px -10px black;
-
 }
 
 .container div {
     align-items: end;
+    fo
 }
 
 .newsTitle {
