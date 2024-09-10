@@ -4,14 +4,20 @@
     padding: 0;
 }
 
+
+
 body {
-    font-family: 'Roboto', sans-serif;
+
+    background-color: rgb(0, 0, 0);
 }
 
 h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     text-align: left;
     font-size: 60px;
     margin: 20px auto 20px 20px;
+    color: #fff;
 }
 
 main {
@@ -19,8 +25,8 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-
+    justify-content: start;
+    margin-left: 15px;
 }
 
 .container {
@@ -28,73 +34,52 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: end;
+    align-items: space-between;
     border: solid 1px black;
     height: 300px;
     width: 300px;
     margin-top: -1px;
     margin-left: -1px;
-    padding: 5px 10px;
-}
-
-
-
-.container div {
-    align-items: end;
-}
-
-.newsTitle {
-    font-size: 30px;
-    font-weight: bold;
-    width: 100%;
-}
-
-.newsUrl,
-.newsDate {
-    font-size: 10px;
-}
-
-
-
-
-
-
-/* CSS */
-.container {
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: end;
-    border: solid 1px black;
-    height: 300px;
-    width: 300px;
-    margin-top: -1px;
-    margin-left: -1px;
-    padding: 5px 10px;
-
-
-
-
-
+    padding: 10px 10px;
     background-color: #fff;
-    border: 1px solid #3a3a3a;
-
-
-    color: #000000;
-    cursor: pointer;
-
-
-
-
+    cursor: crosshair;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
     box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container:hover {
     background-color: #000000;
     color: #fff;
+}
+
+.newsTitle {
+    font-family: "Newsreader", serif;
+    font-weight: 700;
+    font-size: 32px;
+
+    width: 100%;
+    height: 70%;
+}
+
+.newsUrl {
+    margin-right: 30px;
+}
+
+.newsUrl,
+.newsDate {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    align-items: end;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button {
+    font-size: 30px;
+    align-items: end;
 }
