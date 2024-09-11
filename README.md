@@ -1,5 +1,7 @@
 # Hacker News Stories Loader
 
+https://haknews.netlify.app/
+
 This project is a simple web application that fetches and displays the latest news from Hacker News. It uses the Hacker News API to retrieve news data and shows it to the user, with the option to load more stories using a "Load More" button.
 
 ## Features
