@@ -1,56 +1,109 @@
-# hackNews
+# Hacker News Stories Loader
 
-Welcome to **hackNews**!
+Questo progetto è una semplice applicazione web che carica e visualizza le ultime notizie da Hacker News. Utilizza l'API di Hacker News per ottenere i dati delle notizie e li mostra all'utente, con la possibilità di caricare ulteriori storie tramite un pulsante "Load More".
 
-## Overview
+## Funzionalità
 
-**hackNews** is a platform dedicated to democratizing the dissemination of technology news by leveraging the Hacker News service. Our site provides a clean, intuitive interface to access the latest and most relevant tech articles and updates, all in one place.
+- **Caricamento delle notizie**: La funzione `getNews()` recupera le ultime storie dall'API di Hacker News, elaborandole e visualizzandole sulla pagina web.
+- **Visualizzazione delle notizie**: Ogni notizia è mostrata con il titolo, l'URL e la data di pubblicazione.
+- **Caricamento continuo**: Un pulsante "Load More" consente di caricare e visualizzare ulteriori notizie in batch di 10.
 
-## Features
+## Struttura del Codice
 
-- **Intuitive Design**: Articles are displayed as clickable squares, each featuring a title, URL, and publication date.
-- **Seamless Navigation**: Click on any article square to be taken directly to the corresponding Hacker News page.
-- **Real-time Updates**: Stay up-to-date with the latest tech news and trends.
+1. **Variabili e Funzioni**
 
-## Technologies Used
+   ```javascript
+   let lastLoadedIndex = 0;
+   ```
 
-- **HTML**: For structuring the content.
-- **CSS**: For styling and layout.
-- **JavaScript**: For dynamic interactions and functionalities.
-- **Git**: For version control and collaboration.
+   - Variabile che tiene traccia dell'ultimo indice delle notizie caricate.
 
-## Installation and Usage
+   ```javascript
+   function getNews() {
+     // Funzione per caricare e visualizzare le notizie
+   }
+   ```
 
-**Clone the Repository**:
+   - Funzione principale per caricare e visualizzare le notizie. Recupera i dati dall'API, elenca gli ID delle notizie da caricare, e poi visualizza le notizie recuperate.
 
-git clone https://github.com/your-username/hackNews.git
+   ```javascript
+   function fetchStory(id) {
+     // Funzione per recuperare i dati di una singola storia utilizzando il suo ID
+   }
+   ```
 
-To get started with hackNews locally, follow these steps:
+   - Funzione per recuperare i dati di una singola storia utilizzando il suo ID.
 
-## How It Works
+   ```javascript
+   function makeButton() {
+     // Funzione per creare un pulsante "Load More"
+   }
+   ```
 
-**Article Display**: Articles are presented in a grid format with each square representing a tech news item.
-**Details**: Each square includes the article's title, URL, and publication date.
-**Interaction**: Click on a square to be redirected to the article on Hacker News.
+   - Funzione per creare un pulsante "Load More" che carica ulteriori notizie quando viene cliccato.
 
-## Contributing
+2. **Caricamento iniziale**
 
-We welcome contributions to hackNews! If you have suggestions, find a bug, or want to add a new feature, please follow these steps:
+   ```javascript
+   getNews();
+   setTimeout(makeButton, 1500);
+   ```
 
-Fork the Repository and make your changes.
-Submit a Pull Request with a clear description of your changes.
-Open an Issue if you encounter any bugs or have feature requests.
-For detailed contribution guidelines, please refer to the CONTRIBUTING.md file.
+   - `getNews()`: Viene chiamato all'avvio per caricare le prime notizie.
+   - `setTimeout(makeButton, 1500)`: Crea un pulsante "Load More" dopo un breve ritardo.
 
-## License
+## Come Utilizzare
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+1. **Includere il Codice HTML**
 
-## Contact
+   Assicurati di avere una struttura HTML di base con un elemento con l'ID `main` dove verranno inserite le notizie.
 
-Feel free to reach out if you have any questions, feedback, or need support:
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>Hacker News Stories Loader</title>
+       <style>
+         .container {
+           margin: 10px;
+           padding: 10px;
+           border: 1px solid #ddd;
+         }
+         .newsTitle {
+           font-size: 1.2em;
+           font-weight: bold;
+         }
+         .newsUrl {
+           color: blue;
+         }
+         .newsDate {
+           font-size: 0.8em;
+           color: gray;
+         }
+       </style>
+     </head>
+     <body>
+       <div id="main"></div>
+       <script src="path/to/your/script.js"></script>
+     </body>
+   </html>
+   ```
 
-Instagram
-GitHub
-Personal Website
-Thank you for visiting hackNews! We hope you find it useful and engaging.
+2. **Includere il Codice JavaScript**
+
+   Salva il codice JavaScript in un file separato, ad esempio `script.js`, e includilo nella tua pagina HTML come mostrato sopra.
+
+## Errori e Debug
+
+- Verifica la console del browser per eventuali errori durante il caricamento delle notizie.
+- Assicurati che la tua connessione a Internet sia attiva e che l'API di Hacker News sia disponibile.
+
+## Contribuire
+
+Se desideri contribuire a questo progetto, sentiti libero di aprire un issue o inviare una pull request.
+
+## Licenza
+
+Questo progetto è concesso in licenza sotto la [MIT License](LICENSE).
