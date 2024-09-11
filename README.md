@@ -1,62 +1,62 @@
 # Hacker News Stories Loader
 
-Questo progetto è una semplice applicazione web che carica e visualizza le ultime notizie da Hacker News. Utilizza l'API di Hacker News per ottenere i dati delle notizie e li mostra all'utente, con la possibilità di caricare ulteriori storie tramite un pulsante "Load More".
+This project is a simple web application that fetches and displays the latest news from Hacker News. It uses the Hacker News API to retrieve news data and shows it to the user, with the option to load more stories using a "Load More" button.
 
-## Funzionalità
+## Features
 
-- **Caricamento delle notizie**: La funzione `getNews()` recupera le ultime storie dall'API di Hacker News, elaborandole e visualizzandole sulla pagina web.
-- **Visualizzazione delle notizie**: Ogni notizia è mostrata con il titolo, l'URL e la data di pubblicazione.
-- **Caricamento continuo**: Un pulsante "Load More" consente di caricare e visualizzare ulteriori notizie in batch di 10.
+- **News Loading**: The `getNews()` function retrieves the latest stories from the Hacker News API, processes the data, and displays it on the web page.
+- **News Display**: Each news item is shown with its title, URL, and publication date.
+- **Continuous Loading**: A "Load More" button allows users to load and view additional news stories in batches of 10.
 
-## Struttura del Codice
+## Code Structure
 
-1. **Variabili e Funzioni**
+1. **Variables and Functions**
 
    ```javascript
    let lastLoadedIndex = 0;
    ```
 
-   - Variabile che tiene traccia dell'ultimo indice delle notizie caricate.
+   - Variable that tracks the index of the last loaded news stories.
 
    ```javascript
    function getNews() {
-     // Funzione per caricare e visualizzare le notizie
+     // Function to load and display news stories
    }
    ```
 
-   - Funzione principale per caricare e visualizzare le notizie. Recupera i dati dall'API, elenca gli ID delle notizie da caricare, e poi visualizza le notizie recuperate.
+   - Main function to load and display news stories. It fetches data from the API, determines which story IDs to load, and then displays the fetched stories.
 
    ```javascript
    function fetchStory(id) {
-     // Funzione per recuperare i dati di una singola storia utilizzando il suo ID
+     // Function to fetch data for a single story using its ID
    }
    ```
 
-   - Funzione per recuperare i dati di una singola storia utilizzando il suo ID.
+   - Function to fetch data for a single story using its ID.
 
    ```javascript
    function makeButton() {
-     // Funzione per creare un pulsante "Load More"
+     // Function to create a "Load More" button
    }
    ```
 
-   - Funzione per creare un pulsante "Load More" che carica ulteriori notizie quando viene cliccato.
+   - Function to create a "Load More" button that loads additional news stories when clicked.
 
-2. **Caricamento iniziale**
+2. **Initial Loading**
 
    ```javascript
    getNews();
    setTimeout(makeButton, 1500);
    ```
 
-   - `getNews()`: Viene chiamato all'avvio per caricare le prime notizie.
-   - `setTimeout(makeButton, 1500)`: Crea un pulsante "Load More" dopo un breve ritardo.
+   - `getNews()`: Called on startup to load the initial news stories.
+   - `setTimeout(makeButton, 1500)`: Creates the "Load More" button after a short delay.
 
-## Come Utilizzare
+## Usage
 
-1. **Includere il Codice HTML**
+1. **Include the HTML Code**
 
-   Assicurati di avere una struttura HTML di base con un elemento con l'ID `main` dove verranno inserite le notizie.
+   Ensure you have a basic HTML structure with an element with the ID `main` where the news stories will be inserted.
 
    ```html
    <!DOCTYPE html>
@@ -91,19 +91,19 @@ Questo progetto è una semplice applicazione web che carica e visualizza le ulti
    </html>
    ```
 
-2. **Includere il Codice JavaScript**
+2. **Include the JavaScript Code**
 
-   Salva il codice JavaScript in un file separato, ad esempio `script.js`, e includilo nella tua pagina HTML come mostrato sopra.
+   Save the JavaScript code in a separate file, for example `script.js`, and include it in your HTML page as shown above.
 
-## Errori e Debug
+## Errors and Debugging
 
-- Verifica la console del browser per eventuali errori durante il caricamento delle notizie.
-- Assicurati che la tua connessione a Internet sia attiva e che l'API di Hacker News sia disponibile.
+- Check the browser console for any errors during the loading of news stories.
+- Ensure that your internet connection is active and that the Hacker News API is available.
 
-## Contribuire
+## Contributing
 
-Se desideri contribuire a questo progetto, sentiti libero di aprire un issue o inviare una pull request.
+If you would like to contribute to this project, feel free to open an issue or submit a pull request.
 
-## Licenza
+## License
 
-Questo progetto è concesso in licenza sotto la [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
