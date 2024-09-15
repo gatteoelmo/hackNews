@@ -87,10 +87,10 @@ function makeButton() {
     loadMore.addEventListener("click", () => {
         loadMore.remove();
         getNews();
-        setTimeout(makeButton, 1500);
+        setTimeout(makeButton, 2000);
     });
 }
 
 // charge the news and the button
 getNews()
-setTimeout(makeButton, 1500);
+setTimeout(makeButton, 2000);
