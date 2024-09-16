@@ -1,46 +1,49 @@
 import axios from 'axios';
+import _ from 'lodash';
 
 const main = document.querySelector("#main");
 let lastLoadedIndex = 0;
 
-console.log("Caricamento in corso...");
-
-// Funzione per recuperare gli ID delle nuove storie
+// Function to fetch new story IDs
 async function fetchNewStoryIds() {
     try {
         const response = await axios.get("https://hacker-news.firebaseio.com/v0/newstories.json");
+        console.log(`News fetched: `);
+        console.log(response.data);
         return response.data;
     } catch (error) {
-        console.error(`Errore durante il recupero degli ID delle storie: ${error}`);
+        console.error(`Error trying to fetch new story IDs: ${error}`);
         throw error;
     }
 }
 
-// Funzione per recuperare una singola storia per ID
+// Function to fetch a single story by ID
 async function fetchStory(id) {
     try {
         const response = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+        console.log(response.data);
         return response.data;
     } catch (error) {
-        console.error(`Errore durante il recupero della storia con ID ${id}: ${error}`);
+        console.error(`Error fetching story with ID ${id}: ${error}`);
         throw error;
     }
 }
 
-// Funzione per caricare e visualizzare le storie
+// Function to load and display stories
 async function loadStories() {
     try {
         const allIds = await fetchNewStoryIds();
-        if (allIds.length === 0) {
+        if (_.isEmpty(allIds)) { 
             displayNoNewsMessage();
             return;
         }
 
-        const idsToLoad = allIds.slice(lastLoadedIndex, lastLoadedIndex + 10);
+        const idsToLoad = _.slice(allIds, lastLoadedIndex, lastLoadedIndex + 10);
         lastLoadedIndex += 10;
-        const stories = await Promise.all(idsToLoad.map(fetchStory));
+        console.log(`Stories fetched: `);
+        const stories = await Promise.all(_.map(idsToLoad, fetchStory));
 
-        if (stories.length === 0) {
+        if (_.isEmpty(stories)) { 
             displayNoNewsMessage();
         } else {
             displayStories(stories);
@@ -50,28 +53,28 @@ async function loadStories() {
     }
 }
 
-// Funzione per visualizzare le storie
+// Function to display stories
 function displayStories(stories) {
-    stories.forEach(story => {
+    _.forEach(stories, story => {
         const container = document.createElement("div");
         container.classList.add("container");
         container.addEventListener("click", () => {
             window.open(story.url, "_blank");
         });
 
-        // Titolo della notizia
+        // News title
         const newsTitle = document.createElement("div");
         newsTitle.classList.add("newsTitle");
         newsTitle.textContent = story.title;
         container.appendChild(newsTitle);
 
-        // URL della notizia
+        // News URL
         const newsUrl = document.createElement("div");
         newsUrl.classList.add("newsUrl");
         newsUrl.textContent = story.url;
         container.appendChild(newsUrl);
 
-        // Data della notizia
+        // News date
         const date = new Date(story.time * 1000);
         const newsDate = document.createElement("div");
         newsDate.classList.add("newsDate");
@@ -82,24 +85,24 @@ function displayStories(stories) {
     });
 }
 
-// Funzione per visualizzare un messaggio quando non ci sono notizie
+// Function to display a message when no news is found
 function displayNoNewsMessage() {
-    main.innerHTML = '<div class="message">Nessuna notizia trovata</div>';
+    main.innerHTML = '<div class="message">No news found</div>';
 }
 
-// Funzione per visualizzare un messaggio di errore
+// Function to display an error message
 function displayErrorMessage() {
-    main.innerHTML = '<div class="message">Errore durante il recupero delle notizie</div>';
+    main.innerHTML = '<div class="message">Error fetching news</div>';
 }
 
-// Funzione per creare il pulsante "Carica di più"
+// Function to create the "Load More" button
 function createLoadMoreButton() {
-    console.log("Creazione del pulsante Carica di più");
+    console.log("Creating Load More button");
     const loadMore = document.createElement("button");
     loadMore.classList.add("container");
     loadMore.textContent = "+";
     main.insertAdjacentElement('beforeend', loadMore);
-    console.log("Pulsante Carica di più creato correttamente");
+    console.log("Load More button created successfully");
 
     loadMore.addEventListener("click", async () => {
         loadMore.remove();
@@ -108,7 +111,7 @@ function createLoadMoreButton() {
     });
 }
 
-// Carica le notizie iniziali e crea il pulsante
+// Load initial stories and create the button
 loadStories().then(() => {
     createLoadMoreButton();
 });
