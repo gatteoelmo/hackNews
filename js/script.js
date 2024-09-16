@@ -97,7 +97,6 @@ function displayErrorMessage() {
 
 // Function to create the "Load More" button
 function createLoadMoreButton() {
-    console.log("Creating Load More button");
     const loadMore = document.createElement("button");
     loadMore.classList.add("container");
     loadMore.textContent = "+";
