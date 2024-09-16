@@ -79,6 +79,10 @@ main {
     text-overflow: ellipsis;
 }
 
+.container:last-child {
+    justify-content: center;
+}
+
 .container:hover {
     background-color: #000000;
     color: #fff;
@@ -107,8 +111,10 @@ main {
 }
 
 button {
-    font-size: 30px;
-    align-items: end;
+    font-family: "Montserrat", sans-serif;
+    font-size: 200px;
+    align-items: center;
+    font-weight: 100;
 }
 
 footer {
