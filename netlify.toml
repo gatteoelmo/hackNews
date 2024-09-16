@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build" # O "yarn build" se usi Yarn
+  publish = "dist" # Assicurati che questa sia la directory corretta per i file buildati
+
+[context.production.environment]
+  NODE_VERSION = "18" # Specifica la versione di Node.js se necessario
