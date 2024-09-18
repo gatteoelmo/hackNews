@@ -10,6 +10,14 @@ This project is a simple web application that fetches and displays the latest ne
 - **News Display**: Each news item is shown with its title, URL, and publication date.
 - **Continuous Loading**: A "Load More" button allows users to load and view additional news stories in batches of 10.
 
+## Built with
+
+- **HTML & CSS**
+- **JavaSript**
+- **Lodash**
+- **Axios**
+- **Vite**
+
 ## Code Structure
 
 1. **Variables and Functions**
