@@ -54,35 +54,37 @@ async function loadStories() {
 }
 
 // Function to display stories
+
 function displayStories(stories) {
     _.forEach(stories, story => {
-        const container = document.createElement("div");
-        container.classList.add("container");
+        const container = createElement("div", ["container"]);
         container.addEventListener("click", () => {
             window.open(story.url, "_blank");
         });
-
+        
         // News title
-        const newsTitle = document.createElement("div");
-        newsTitle.classList.add("newsTitle");
-        newsTitle.textContent = story.title;
+        const newsTitle = createElement("div", ["newsTitle"], story.title);
         container.appendChild(newsTitle);
 
         // News URL
-        const newsUrl = document.createElement("div");
-        newsUrl.classList.add("newsUrl");
-        newsUrl.textContent = story.url;
+        const newsUrl = createElement("div", ["newsUrl"], story.url);
         container.appendChild(newsUrl);
-
+        
         // News date
         const date = new Date(story.time * 1000);
-        const newsDate = document.createElement("div");
-        newsDate.classList.add("newsDate");
-        newsDate.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+        const newsDate = createElement("div", ["newsDate"], `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`);
         container.appendChild(newsDate);
-
+        
         main.appendChild(container);
     });
+}
+
+// Function to create elements
+function createElement(elementType, classNames = [], textContent = '') {
+    const element = document.createElement(elementType);
+    classNames.forEach(className => element.classList.add(className));
+    element.textContent = textContent;
+    return element;
 }
 
 // Function to display a message when no news is found
