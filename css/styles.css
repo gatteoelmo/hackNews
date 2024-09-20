@@ -81,6 +81,7 @@ main {
 
 .container:last-child {
     justify-content: center;
+    cursor: pointer;
 }
 
 .container:hover {
